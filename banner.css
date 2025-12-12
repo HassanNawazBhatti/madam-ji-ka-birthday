@@ -1,25 +1,26 @@
 .banner-container {
-            position: absolute;
-            width:100%;
-            text-align: center;
-            white-space: nowrap;
-        }
+    position: absolute;
+    top: 5%;                 /* distance from top of slide */
+    left: 50%;               /* center horizontally */
+    transform: translateX(-50%);  /* perfect centering */
+    width: 100%;             /* shrink to content */
+    text-align: center;
+    white-space: nowrap;
+}
 
-        .banner-letter {
-            
-            display: inline-block;
-            font-size: 6vw; /* Adjust size as needed */
-            font-family: 'Arial Black', sans-serif;
-            color: #fff; /* White letters */
-            background: linear-gradient(to right, #be6f8d,  #be6f8d); /* Shining gradient background */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgb(224, 75, 137); /* Shining effect */
-            
-            /* Hanging/Swinging effect */
-            animation: swing 2s infinite ease-in-out;
-            transform-origin: top center; /* Makes it swing from the top */
-        }
+.banner-letter {
+    display: inline-block;
+    font-size: clamp(20px, 5vw, 50px); /* scalable size: min 20px, max 50px */
+    font-family: 'Arial Black', sans-serif;
+    color: #fff;
+    background: linear-gradient(to right, #be6f8d, #be6f8d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255,255,255,0.7), 0 0 20px rgb(224,75,137);
+
+    animation: swing 2s infinite ease-in-out;
+    transform-origin: top center;
+}
 
         /* Add unique delays to each letter for a staggered swinging effect */
         .banner-letter:nth-child(odd) { animation-delay: 0.1s; }
