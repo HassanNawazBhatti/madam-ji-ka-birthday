@@ -1,0 +1,48 @@
+.banner-container {
+            position: absolute;
+            width:100vw;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .banner-letter {
+            
+            display: inline-block;
+            font-size: 6vw; /* Adjust size as needed */
+            font-family: 'Arial Black', sans-serif;
+            color: #fff; /* White letters */
+            background: linear-gradient(to right, #be6f8d,  #be6f8d); /* Shining gradient background */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgb(224, 75, 137); /* Shining effect */
+            
+            /* Hanging/Swinging effect */
+            animation: swing 2s infinite ease-in-out;
+            transform-origin: top center; /* Makes it swing from the top */
+        }
+
+        /* Add unique delays to each letter for a staggered swinging effect */
+        .banner-letter:nth-child(odd) { animation-delay: 0.1s; }
+        .banner-letter:nth-child(even) { animation-delay: 0.3s; }
+        .banner-letter:nth-child(4n) { animation-delay: 0.2s; }
+        .banner-letter:nth-child(4n+1) { animation-delay: 0.4s; }
+
+
+        /* Keyframe animation for the swinging motion */
+        @keyframes swing {
+            0%, 100% { transform: rotate(5deg); }
+            50% { transform: rotate(-5deg); }
+        }
+
+        /* Optional: Add a subtle string line */
+        .string {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #aaa;
+            z-index: -1;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slide Test</title>
+<link rel="stylesheet" href="banner.css">
+
+<style>
+  body {
+    margin: 0;
+    background-color: black;
+    font-family: Arial, sans-serif;
+    color: black;
+    overflow-x: hidden;
+  }
+
+  /* ---------- SLIDES ---------- */
+  .slide {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide:first-of-type {
+    display: block;
+  }
+  /* show ONLY target slide */
+  .slide:target {
+    display: block;
+  }
+
+  /* ---------- BACKGROUNDS ---------- */
+  .slideA {
+    background-image: url('hearts.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .slideB {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+    font-size: 2rem;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.15);
+    color: black;
+    text-decoration: none;
+    border-radius: 50%;
+    z-index: 10;
+  }
+
+  .nav:hover { opacity: 1; }
+
+  .prev { left: 20px; }
+  .next { right: 20px; }
+
+  .start, .dim, .decor, .music {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.5vw;
+    border-radius: 40px;
+  }
+
+  .start { top: 75%; }
+  .dim, .decor { top: 70%; }
+  .music { top: 70%;
+         font-size: 4vw; }
+  .start:hover,
+  .dim:hover,
+  .decor:hover,
+  .music:hover { background-color: pink; }
+
+  /* ---------- CONTENT ---------- */
+  .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+  }
+
+  .text-container {
+    flex: 1;
+    padding-right: 20px;
+  }
+
+  .image-container {
+    width: 20vw;
+    margin-right: 13vw;
+    flex-shrink: 0;
+  }
+
+  .image-container img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* ---------- BALLOONS ---------- */
+  .balloons {
+    position: absolute;
+    bottom: -150px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .balloon {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 80px;
+    border-radius: 50% 50% 45% 45%;
+    animation: floatUp 7s infinite ease-in;
+  }
+
+  .balloon::after {
+    content: "";
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    width: 2px;
+    height: 90px;
+    background: black;
+    transform: translateX(-50%);
+  }
+
+  .b1 { left: 10%; background: hotpink; }
+  .b2 { left: 30%; background: skyblue; animation-delay: .5s; }
+  .b3 { left: 55%; background: gold; animation-delay: 1.5s; }
+  .b4 { left: 80%; background: violet; animation-delay: 1s; }
+  .b5 { left: 30%; background: red; animation-delay: 2s; }
+  .b6 { left: 80%; background: green; animation-delay: 2,5s; }
+  .b7 { left: 40%; background: purple; animation-delay: 3s; }
+  .b8 { left: 70%; background: yellow; animation-delay: 3.5s; }
+
+  @keyframes floatUp {
+    to { transform: translateY(-700vh); }
+  }
+
+  /* ---------- TEXT EFFECTS ---------- */
+  .typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid black;
+    width: 0;
+    animation: typing 2s steps(30, end) forwards, blink .8s 3;
+  }
+
+  @keyframes typing { to { width: 100%; border-right: none; } }
+  @keyframes blink { 50% { border-color: transparent; } }
+
+  .fadein {
+        opacity: 0;
+        animation: fadein 3s forwards;
+        animation-delay: 2s;
+    }
+  .fadein2 {
+    opacity: 0;
+    animation: fadein 1s forwards;
+    animation-delay: 0.5s;
+  }
+
+  .animate {
+        background-color: black;
+        opacity: 0;
+        animation: animate 0.5s forwards;
+        animation-delay: 0s;
+    }
+
+    .animate2 {
+        background-image: url(decor.png);
+        background-position: cover;
+        opacity: 0;
+        animation: animate 0.5s forwards;
+        animation-delay: 0s;
+    }
+
+    .neon {
+    color: rgb(224, 179, 209);
+    text-shadow:
+        0 0 5px rgb(224, 179, 209),
+        0 0 10px rgb(224, 179, 209),
+        0 0 20px rgb(224, 179, 209),
+        0 0 40px rgb(224, 179, 209);
+}
+
+
+
+
+    @keyframes animate {   to { opacity: 1; } }
+  @keyframes fadein { to { opacity: 1; } }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:600px) {
+    .slide-content {
+      flex-direction: column;
+      top: 40%;
+      transform: translateY(-40%);
+    }
+    .image-container { width: 50vw; margin-top: 20px; }
+
+
+
+  }
+</style>
+</head>
+
+<body>
+
+<!-- OPEN PAGE AS index.html#slide1 -->
+
+<div id="slide1" class="slide slideA">
+  <div class="slide-content">
+    <div class="text-container">
+      <p class="typewriter" style="font-size:4vw;">🎉 Happiest Birthday Miss. Fiza Asif 🎉</p>
+      <p class="fadein" style="font-size:3vw;">Let's start a waaaarm wish<br>for this cutie patootie kid ✨</p>
+    </div>
+    <div class="image-container">
+      <p class="fadein" style="top20%; left:50%">🥳 yayyyyy 🥳</p>
+      <img class="fadein" src="yay.png">
+    </div>
+  </div>
+
+  <div class="balloons">
+    <span class="balloon b1"></span>
+    <span class="balloon b2"></span>
+    <span class="balloon b3"></span>
+    <span class="balloon b4"></span>
+    <span class="balloon b5"></span>
+    <span class="balloon b6"></span>
+    <span class="balloon b7"></span>
+    <span class="balloon b8"></span>
+  </div>
+
+  <a href="#slide2" class="nav start">start</a>
+</div>
+
+<div id="slide2" class="slide slideA">
+  <div style="width:fit-content; margin:auto; text-align:center; position:relative; top:20%">
+    <p class="typewriter" style="font-size:4vw;">ok so, to have a cozy birthday wish</p>
+    <p class="fadein" style="font-size:3vw;"><br>first dim the lights</p>
+  </div>
+  <a href="#slide2b" class="nav dim fadein">Dim</a>
+  <a href="#slide1" class="nav prev">◀</a>
+</div>
+
+<div id="slide2b" class="slide animate" style="background-color: black;">
+  <div style="width:fit-content; margin:auto; text-align:center; position:relative; top:20%">
+    <p style="font-size:4vw; color: rgb(224, 179, 209);">ok so, to have a cozy birthday wish</p>
+    <p class="fadein2" style=" color: rgb(224, 179, 209); font-size:3vw;">Let's do some decoration</p>
+  </div>
+  <a href="#slide2c" class="nav decor fadein2">Decor</a>
+  <a href="#slide2" class="nav prev">◀</a>
+</div>
+
+<div id="slide2c" class="slide slideB animate2" >
+
+
+    <!-- ⭐ FIX 2: ALL CONTENT OVERLAYS ABOVE BACKGROUND -->
+    <div class="banner-container" style="top:5vh; position: absolute; z-index: 10;">
+        <div class="string"></div>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">Y</span>
+        <span class="banner-letter">&nbsp;</span>
+        <span class="banner-letter">B</span>
+        <span class="banner-letter">I</span>
+        <span class="banner-letter">R</span>
+        <span class="banner-letter">T</span>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">D</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">Y</span>
+    </div>
+
+    <div style="width:fit-content; margin:auto; text-align:center; 
+                position: relative; top:20%; z-index: 10;">
+        <p style="font-size:4vw; color: rgb(224, 179, 209);">Everything's now looking as cute as you</p>
+        <p class="fadein2" style="color: rgb(224, 179, 209); font-size:3vw;">Now let's just play your fav music</p>
+    </div>
+
+    <button 
+      onclick="playMusic()" class="nav music fadein2" style="font-size: 2vw;">
+      ▶ Play Music
+    </button>
+    <a href="#slide2b" class="nav prev" style="z-index: 10;">◀</a>
+</div>
+
+<div id="slide3" class="slide slideB" style="background-image: url(decor.png);">
+    
+    <!-- ⭐ FIX 2: ALL CONTENT OVERLAYS ABOVE BACKGROUND -->
+    <div class="banner-container" style="top:5vh; position: absolute; z-index: 10;">
+        <div class="string"></div>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">Y</span>
+        <span class="banner-letter">&nbsp;</span>
+        <span class="banner-letter">B</span>
+        <span class="banner-letter">I</span>
+        <span class="banner-letter">R</span>
+        <span class="banner-letter">T</span>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">D</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">Y</span>
+    </div>
+
+        <div style="width:fit-content; margin:auto; text-align:center; 
+                position: relative; top:25%; z-index: 10;">
+        <p class="neon" style="font-size:10vw; color: rgb(294, 149, 209); t">GREAT!!</p>
+        </div>
+    <a href="#slide2c" class="nav prev">◀</a>
+</div>
+
+
+
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+<script>
+  function playMusic() {
+    const audio = document.getElementById("bgMusic");
+    audio.volume = 0.5; 
+    audio.play();
+    window.location.hash = "slide3";
+  }
+</script>
+
+
+</body>
+</html>
