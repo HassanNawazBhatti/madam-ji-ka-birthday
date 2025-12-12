@@ -133,6 +133,13 @@
     border-radius: 40px;
   }
 
+  .anywhere {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 0;
+  }
+
   .start { top: 75%; }
   .dim, .decor { top: 70%; }
   .music { top: 70%; font-size: 4vw; }
@@ -236,6 +243,18 @@
     animation: fadein 1s forwards;
     animation-delay: 0.5s;
   }
+
+.fadeshow {
+  opacity: 0; /* start hidden */
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }        /* start */
+  20% { opacity: 1; }       /* fade-in over first 20% of duration */
+  80% { opacity: 1; }       /* stay fully visible */
+  100% { opacity: 0; }      /* fade-out over last 20% */
+}
+
 
   .animate {
     background-color: black;
@@ -380,12 +399,94 @@
         <span class="banner-letter">A</span>
         <span class="banner-letter">Y</span>
     </div>
-
+    
     <div style="width:fit-content; margin:auto; text-align:center; position: relative; top:25%; z-index: 10;">
-        <p class="neon" style="font-size:10vw;">GREAT!!</p>
+        <p class="neon fadeshow" style="   animation: fadeInOut 3s forwards; font-size:10vw;">GREAT!!</p>
     </div>
-    <a href="#slide2c" class="nav prev">◀</a>
+    <a href="#slide2c" class="nav prev" style="z-index: 10;">◀</a>
 </div>
+
+<div id="slidea" class="slide slideB" style="background-image: url(decor.png);">
+    
+    <div class="banner-container" style="top:5vh; position: absolute; z-index: 10;">
+        <div class="string"></div>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">Y</span>
+        <span class="banner-letter">&nbsp;</span>
+        <span class="banner-letter">B</span>
+        <span class="banner-letter">I</span>
+        <span class="banner-letter">R</span>
+        <span class="banner-letter">T</span>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">D</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">Y</span>
+    </div>
+    
+    <div style="width:fit-content; margin:auto; text-align:center; position: relative; top:25%; z-index: 10;">
+        <p class="fadeshow" style=" color: rgb(224, 179, 209);  animation: fadeInOut 15s forwards; font-size:2vw;"><br><br>from now on, tap anywhere to proceed to next slide <br>awei na ab tap krti rhna fzul mn<br>phle tahamul se prhlena, fir tap krna. okie? :)</p>
+    </div>
+    <a href="#slide3" class="nav prev" style="z-index: 10;">◀</a>
+    <a href="#slideb" class="anywhere" style="z-index: 9; width: 100%; height: 100%;"></a>
+</div>
+
+<div id="slideb" class="slide slideB" style="background-image: url(decor.png);">
+    
+    <div class="banner-container" style="top:5vh; position: absolute; z-index: 10;">
+        <div class="string"></div>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">Y</span>
+        <span class="banner-letter">&nbsp;</span>
+        <span class="banner-letter">B</span>
+        <span class="banner-letter">I</span>
+        <span class="banner-letter">R</span>
+        <span class="banner-letter">T</span>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">D</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">Y</span>
+    </div>
+    
+    <div style="width:fit-content; margin:auto; text-align:center; position: relative; top:25%; z-index: 10;">
+        <p class="fadeshow" style=" color: rgb(224, 179, 209);  animation: fadeInOut 20s forwards; font-size:2vw;"><br><br>Day to special hota ee nai hai wese, banaya jata hai,<br>aur aap ese insaan ho, jo dusro keh<br>random days ko bhi special banata eh.<br>matlab indirectly, aap khud ee bohat special ho.<br>samjhi? hehee.</p>
+    </div>
+    <a href="#slidec" class="anywhere" style="z-index: 9; width: 100%; height: 100%;"></a>
+    <a href="#slidea" class="nav prev" style="z-index: 10;">◀</a>
+</div>
+
+<div id="slidec" class="slide slideB" style="background-image: url(decor.png);">
+    
+    <div class="banner-container" style="top:5vh; position: absolute; z-index: 10;">
+        <div class="string"></div>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">P</span>
+        <span class="banner-letter">Y</span>
+        <span class="banner-letter">&nbsp;</span>
+        <span class="banner-letter">B</span>
+        <span class="banner-letter">I</span>
+        <span class="banner-letter">R</span>
+        <span class="banner-letter">T</span>
+        <span class="banner-letter">H</span>
+        <span class="banner-letter">D</span>
+        <span class="banner-letter">A</span>
+        <span class="banner-letter">Y</span>
+    </div>
+    
+    <div style="width:fit-content; margin:auto; text-align:center; position: relative; top:25%; z-index: 10;">
+        <p class="fadeshow" style=" color: rgb(224, 179, 209);  animation: fadeInOut 20s forwards; font-size:2vw;"><br><br>toh kyu na ab apko apke bare mn kuch facts<br>bata diye jayen? kyu keh khud to aapne<br> apney girebaan mn jhankna ni hota,<br>dumboooo kahiii ki :(</p>
+    </div>
+    <a href="#slided" class="anywhere" style="z-index: 9; width: 100%; height: 100%;"></a>
+    <a href="#slideb" class="nav prev" style="z-index: 10;">◀</a>
+</div>
+
 
 </div> <!-- end master canvas -->
 
@@ -412,6 +513,29 @@
     }
   };
 </script>
+
+<script>
+function autoNextSlide(slideId, nextSlideId, duration) {
+  // Only trigger if we are on the correct slide
+  if (location.hash === "#" + slideId) {
+    setTimeout(() => {
+      location.hash = "#" + nextSlideId;
+    }, duration);
+  }
+}
+
+window.addEventListener("load", () => {
+  autoNextSlide("slide3", "slidea", 4000);
+});
+
+window.addEventListener("hashchange", () => {
+  autoNextSlide("slide3", "slidea", 4000);
+});
+
+
+</script>
+
+
 
 
 
